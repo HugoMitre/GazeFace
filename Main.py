@@ -11,12 +11,11 @@ import rotaciones, distancia
 mp_face_mesh = mp.solutions.face_mesh  # inicializa el modelo face mesh 
 # streaming de la camara:
 cap = cv2.VideoCapture(0)  # elige el indice de la camara (prueba 1, 2, 3)
-
 with mp_face_mesh.FaceMesh(
         max_num_faces=1,  # numero de caras a trastrear en cada frame 
         refine_landmarks=True,  # incluye los landmarks del iris en el modelo face mesh  
-        min_detection_confidence=0.5,
-        min_tracking_confidence=0.5) as face_mesh:
+        min_detection_confidence=0.7,
+        min_tracking_confidence=0.6) as face_mesh:
     while cap.isOpened():
         success, image = cap.read()
         if not success:  # no hay entrada de frames 
