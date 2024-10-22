@@ -211,10 +211,8 @@ def gaze(frame, points):
         p1_head = (int(Nose[0]), int(Nose[1]))
         p2_head = (int(HeadPoint[0]), int(HeadPoint[1]))
         cv2.line(frame, p1_head, p2_head, (0, 0, 150), 2)
-        
-        font = cv2.FONT_HERSHEY_SIMPLEX
         # Imprime en pantalla los valores de rotacion de: mirada del ojo izquierdo, mirada del ojo derecho y del movimiento de cabeza.
-        cv2.putText(frame, RH, (50, 50), font, 1, (0, 0, 150), 2, cv2.LINE_4)
-        cv2.putText(frame, RER, (50, 100), font, 1, (255, 0, 0), 2, cv2.LINE_4)
-        cv2.putText(frame, REL, (50, 150), font, 1, (0, 255, 0), 2, cv2.LINE_4) 
+        cv2.putText(frame, RH, (50, 50), font, 1, (0, 0, 151), 2, cv2.LINE_4)
+        cv2.putText(frame, RER, (50, 100), font, 1, (254, 0, 0), 2, cv2.LINE_4)
+        cv2.putText(frame, REL, (50, 150), font, 1, (0, 254, 0), 2, cv2.LINE_4) 
 
