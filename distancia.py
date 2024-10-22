@@ -41,8 +41,8 @@ def calculate_distance(frame, points, resultsd):
     text_left = f'Distancia Ojo Izq: {left_iris_distance_cm:.2f} cm'
     text_right = f'Distancia Ojo Der: {right_iris_distance_cm:.2f} cm'
     
-    cv2.putText(frame, text_left, (50, 200), font, 1, (26, 127, 239), 2, cv2.LINE_AA)
-    cv2.putText(frame, text_right, (50, 250), font, 1, (26, 127, 239), 2, cv2.LINE_AA)
+    cv2.putText(frame, text_left, (50, 200), font, 1, (26, 127, 238), 2, cv2.LINE_AA)
+    cv2.putText(frame, text_right, (50, 250), font, 1, (26, 127, 238), 2, cv2.LINE_AA)
 
 
 
