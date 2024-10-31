@@ -57,7 +57,7 @@ comment_density = (total_comments / total_loc) * 100 if total_loc else 0  # Porc
 def save_plot(metric_name, value, description, filename):
     # Crea un gráfico de barras para la métrica con título y descripción
     plt.figure(figsize=(6, 4))  # Tamaño del gráfico
-    plt.bar([metric_name], [value], color='skyblue')  # Genera una barra con el nombre y valor de la métrica
+    plt.bar([metric_name], [value], color='purple')  # Genera una barra con el nombre y valor de la métrica
     plt.xlabel('Métrica')
     plt.ylabel('Valor')
     plt.title(metric_name)
@@ -88,46 +88,58 @@ pdf.add_page()  # Agrega una página nueva al PDF
 pdf.set_auto_page_break(auto=True, margin=15)  # Configura márgenes y salto automático de página
 pdf.set_font("Arial", "B", 16)  # Configura la fuente del título
 
+# Título del documento
+pdf.cell(200, 10, "MÉTRICAS DE CÓDIGO", ln=True, align="C")  # Título centrado
+pdf.ln(10)  # Salto de línea
+pdf.ln(10)  # Salto de línea
+pdf.ln(10)  # Salto de línea
+
 # Agrega Complejidad Promedio al PDF
 pdf.cell(200, 10, "Complejidad Promedio del Código", ln=True, align="C")  # Título centrado
 pdf.image('complejidad_promedio.png', x=60, w=90)  # Inserta el gráfico en el PDF
 pdf.ln(10)  # Salto de línea
-pdf.set_font("Arial", "", 12)  # Cambia el tamaño de fuente para el texto
+pdf.set_font("Arial", "", 10)  # Cambia el tamaño de fuente para el texto
 pdf.multi_cell(0, 10, 
                "La complejidad ciclomática promedio mide la dificultad del código.\n"
                "Valores altos indican más caminos de ejecución y complejidad mayor, lo que podría\n"
                "hacer el código difícil de mantener. Valores bajos indican una estructura simple\n"
                "y directa, que generalmente es más fácil de mantener.\n\n")
 
+pdf.ln(10)  # Salto de línea
+
 # Agrega Líneas de Código al PDF
 pdf.set_font("Arial", "B", 16)
 pdf.cell(200, 10, "Líneas de Código", ln=True, align="C")
 pdf.image('lineas_codigo.png', x=60, w=90)
 pdf.ln(10)
-pdf.set_font("Arial", "", 12)
+pdf.set_font("Arial", "", 10)
 pdf.multi_cell(0, 10, 
                "Este valor indica el tamaño del proyecto en términos de líneas de código (LoC).\n"
                "Un número elevado puede significar que el proyecto es grande o que no está\n"
                "suficientemente modularizado. Menor cantidad de líneas puede ser una señal\n"
                "de código eficiente o de un proyecto más pequeño.\n\n")
 
+pdf.ln(10)  # Salto de línea
+
 # Agrega Densidad de Comentarios al PDF
 pdf.set_font("Arial", "B", 16)
 pdf.cell(200, 10, "Densidad de Comentarios", ln=True, align="C")
 pdf.image('densidad_comentarios.png', x=60, w=90)
 pdf.ln(10)
-pdf.set_font("Arial", "", 12)
+pdf.set_font("Arial", "", 10)
 pdf.multi_cell(0, 10, 
                "La densidad de comentarios es el porcentaje de líneas de comentarios en\n"
                "relación con el total de líneas de código. Una alta densidad de comentarios\n"
                "indica una mejor documentación, lo que facilita el mantenimiento y la colaboración.\n\n")
+
+pdf.ln(10)  # Salto de línea
 
 # Agrega Índice de Mantenibilidad al PDF
 pdf.set_font("Arial", "B", 16)
 pdf.cell(200, 10, "Índice de Mantenibilidad", ln=True, align="C")
 pdf.image('indice_mantenibilidad.png', x=60, w=90)
 pdf.ln(10)
-pdf.set_font("Arial", "", 12)
+pdf.set_font("Arial", "", 10)
 pdf.multi_cell(0, 10, 
                "El índice de mantenibilidad mide qué tan fácil será mantener el código a lo largo\n"
                "del tiempo. Un índice alto indica un código bien estructurado y documentado, lo que\n"
